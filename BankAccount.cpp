@@ -6,45 +6,17 @@
 //      A01753803 Emiliano Garcia Ramos 
 //---------------------------------------------------
 
-
-
-
-
 #include "BankAccount.h"
 #include <iostream>
 #include <sstream>
 #include <iomanip>
 #include <stdexcept>
 
-
-BankAccount::(std::string number, std::string name,double balance)
-    : _account_number(number),_accountholder_name(name),_balance(balance) {}
-void BankAccount::deposit(double amount) {
-if (amount < 0) {
-      throw std::invalid_argument ("El monto del deposito no puede ser negativo ");
-}
-_balance+= amount;
-}
-
-void BankAccount:: withdraw(double amount) {
-if (amount < 0) {
-    throw std::invalid_argument("El monto del retiro no puede ser negativo");
-}
-if (amount > _balance){
-    throw std::runtime_error ("Fondos insuficientes en la cuenta bancaria ");
-}
-_balance -= amount;
-}
-
 std::string BankAccount::to_string() const {
-    return "Hola";
-
-}
-
-std::ostream& operator<<(std::ostream& os, const BankAccount& BankAccount)
-{
-    return os << BankAccount.to_string();
-}
+    return "Numero de cuenta: " + _account_number + "\n"
+    + "Titular de la cuenta: " + _account_holder_name + "\n"
+    + "Saldo: " + to_string_with_precision(_balance, 3); 
+};
 
 std::string to_string_with_precision(double a_value,int n) {
     std::ostringstream out;
