@@ -14,19 +14,19 @@
 // Clase base:BankAccount
 class BankAccount {
 public:
-    virtual void deposit(double amount);
-    virtual void withdraw(double amount); //Virtual class to be overrided on dependences
+    virtual void deposit(double amount) = 0;
+    virtual void withdraw(double amount) = 0; //Virtual class to be overrided on dependences
     std::string to_string() const;
+    friend std::ostream& operator<<(std::ostream& os, const BankAccount& account);
 
     BankAccount(double balance, std::string account_number, std::string account_holder) : 
         _balance(balance), _account_number(account_number), _account_holder_name(account_holder){} 
 
     //virtual~BankAccount() = default; // virtual destroyer 
-private:
+protected:
     double _balance;
     std::string _account_number;
     std::string _account_holder_name;
 };
 
-std::ostream& operator<<(std::ostream& os, const BankAccount& BA);
 
