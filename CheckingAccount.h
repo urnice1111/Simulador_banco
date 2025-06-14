@@ -14,16 +14,18 @@
 // clase derivada :chekingAccount
 class CheckingAccount : public BankAccount {
 public:
-   // Limite de sobregiro
-double _overdraft_limit;
 
-explicit checkingAccount(
-const std::string& account_holder_name,
-const std::string& account_number,
-double overdraft_limit)
-:BankAccount(balance, account_number,account_holder_name), _overdraft_limit(overdraft_limit){}
+CheckingAccount(std::string account_holder_name,
+               std::string account_number,
+               double balance,
+               double overdraft_limit): BankAccount(balance, account_number, account_holder_name),  // inicializa la base
+               _overdraft_limit(overdraft_limit) {}   
 
 void deposit(double amount) override;
 
 void withdraw(double amount) override;
+
+private:
+   // Limite de sobregiro
+double _overdraft_limit;
 };

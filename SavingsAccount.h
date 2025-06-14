@@ -14,7 +14,7 @@ class SavingsAccount: public BankAccount{
 
 
     public:
-    double _interest_rate;
+
 
     SavingsAccount(
                    std::string account_holder_name,
@@ -26,6 +26,9 @@ class SavingsAccount: public BankAccount{
 
     void deposit(double amount) override;
     void withdraw(double amount) override;
+
+    private:
+    double _interest_rate;
 
 };
 

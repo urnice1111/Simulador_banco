@@ -14,7 +14,9 @@ void SavingsAccount::deposit(double amount) {
     if (amount <= 0){
         throw std::runtime_error("El monto del depósito no puede ser negativo");
     }
-    _balance += amount + amount * _interest_rate;
+    _balance += amount;
+
+    _balance += _balance * ( _interest_rate / 100.0);
 }
 
 void SavingsAccount::withdraw(double amount) {

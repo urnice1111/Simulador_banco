@@ -22,7 +22,7 @@ std::string to_string_with_precision(double a_value,int n) {
 std::string BankAccount::to_string() const {
     return "Numero de cuenta: " + _account_number + "\n"
     + "Titular de la cuenta: " + _account_holder_name + "\n"
-    + "Saldo: " + to_string_with_precision(_balance, 3); 
+    + "Saldo: " + to_string_with_precision(_balance, 2); 
 };
 
 std::ostream& operator<<(std::ostream& os, const BankAccount& account) {
